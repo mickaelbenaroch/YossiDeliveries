@@ -9,7 +9,7 @@
     ]
   },
   "hosting": {
-    "public": "dist",
+    "public": "dist/YossDeliveries",
     "ignore": [
       "firebase.json",
       "**/.*",
