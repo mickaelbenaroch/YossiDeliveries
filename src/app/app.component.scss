@@ -1,0 +1,17 @@
+.envelop {
+    header {
+        direction: rtl;
+        background-color: lightgrey;
+        padding: 1rem;
+        border-bottom: 2px solid black;
+    }
+    main {
+        height: -moz-calc(100% - 134px);
+        height: -webkit-calc(100% - 134px);
+        height: calc(100% - 134px);
+    }
+    footer {
+        height: 100px;
+        background-color: lightgrey;
+    }
+}
