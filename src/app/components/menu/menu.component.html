@@ -3,7 +3,7 @@
         <img src="/assets/user.png" (click)="Login()"/>
     </div>
     <div class="categories-group-div">
-        <div>רשימת שליחים</div>
+        <div (click)="MenuItemClicked('list')">רשימת שליחים</div>
         <div *ngIf="this.userService.isUserLoggedIn">הוסף שליח</div>
         <div>שעות שליחים</div>
     </div>

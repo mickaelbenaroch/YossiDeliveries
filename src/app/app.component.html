@@ -4,8 +4,11 @@
   </header>
 
   <main>
-    <app-menu></app-menu>
-    <app-login></app-login>
+    <app-menu (DeliverersListEvent)="LoggedInCallback($event)"></app-menu>
+    <app-login (loggedInEvent)="LoggedInCallback($event)"
+               *ngIf="page === pageenum.Loggin">
+    </app-login>
+    <app-deliverers-list *ngIf="page === pageenum.DeliverersList"></app-deliverers-list>
   </main>
   <footer>
     by @Mickael_Benaroch

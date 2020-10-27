@@ -7,14 +7,16 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserServiceService } from './services/user-service.service'
+import { UserServiceService } from './services/user-service.service';
+import { DeliverersListComponent } from './components/deliverers-list/deliverers-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     LogoComponent,
-    LoginComponent
+    LoginComponent,
+    DeliverersListComponent
   ],
   imports: [
     BrowserModule,

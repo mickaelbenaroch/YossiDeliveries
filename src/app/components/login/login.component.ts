@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit, OnDestroy{
   public password: string;
   public email: string;
   private baseUrl: string = "http://localhost:3030/";
+  @Output() loggedInEvent: EventEmitter<boolean> = new EventEmitter();
+
   constructor(private httpService: HttpClient, private userService: UserServiceService) { }
 
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy{
         if(res && res.data) {
             console.log(res.data);
             this.userService.isUserLoggedIn = true;
+            this.loggedInEvent.emit(true);
         } else {
           this.passwordError = true;
           this.emailError = true;

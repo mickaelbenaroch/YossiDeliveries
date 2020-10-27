@@ -35,3 +35,19 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .envelop {
+       justify-content: center;
+       padding-right: unset;
+       .categories-group-div{
+           padding-right: 2rem;
+           div {
+            padding: 5px;
+            font-size: 15px;
+            margin-left: 5px;
+            min-width: unset;
+           }
+       }
+    }
+  }
