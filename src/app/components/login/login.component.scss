@@ -1,0 +1,59 @@
+.envelop {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    direction: rtl;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+    font-family: system-ui;
+    position: relative;
+    top: 98px;
+    padding: 2rem;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid white;
+    font-style: italic;
+    h1 {
+        font-size: 35px;
+    }
+    .row {
+        .d-1{
+            text-align: right;
+            label {
+                direction: rtl;
+                text-align: right;
+                font-size: 25px;
+            }
+        }
+      .d-2 {
+        padding-bottom: 5px;
+        input {
+            font-size: 20px;
+            padding: 5px;
+            width: 340px;
+        }
+      }  
+      .d-3 {
+          text-align: right;
+          color: red;
+          padding-bottom: 14px;
+      }
+    }
+    .but-div {
+        font-size: 20px;
+        button {
+            cursor: pointer;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            border-radius: 7px;
+            font-size: 20px;
+        }
+        padding-bottom: 20px;
+    }
+}

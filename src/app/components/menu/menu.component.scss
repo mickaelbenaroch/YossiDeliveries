@@ -1,0 +1,37 @@
+.envelop {
+    direction: rtl;
+    text-align: right;
+    display: flex;
+    justify-content: flex-start;
+    background: antiquewhite;
+    padding: 1rem;
+    padding-right: 2rem;
+    font-family: system-ui;
+
+    .categories-group-div{
+        display: flex;
+        flex-direction: row;
+        padding-right: 4rem;
+        justify-content: space-around;
+        width: 100%;
+        div {
+            background-color: palevioletred;
+            padding: 1rem;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 3rem;
+            min-width: 115px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    .account {
+        img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        cursor: pointer;
+    }
+}

@@ -1,4 +1,5 @@
 .envelop {
+    height: 100%;
     header {
         direction: rtl;
         background-color: lightgrey;
@@ -6,12 +7,17 @@
         border-bottom: 2px solid black;
     }
     main {
-        height: -moz-calc(100% - 134px);
-        height: -webkit-calc(100% - 134px);
-        height: calc(100% - 134px);
+        height: -moz-calc(100% - 234px);
+        height: -webkit-calc(100% - 234px);
+        height: calc(100% - 234px);
+        background: black;
     }
     footer {
         height: 100px;
+        font-style: italic;
+        font-size: 13px;
+        text-align: center;
         background-color: lightgrey;
+        padding-top: 2rem;
     }
 }

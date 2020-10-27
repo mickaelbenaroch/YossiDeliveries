@@ -1,22 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { MenuComponent } from './components/menu/menu.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserServiceService } from './services/user-service.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    LogoComponent
+    LogoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
