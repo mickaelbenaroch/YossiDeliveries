@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { PagesEnum } from 'src/app/enums/pages.enum';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -12,7 +13,7 @@ export class MenuComponent implements OnInit {
   public pageenum: PagesEnum;
   @Output() DeliverersListEvent: EventEmitter<PagesEnum> = new EventEmitter();
 
-  constructor(public userService: UserServiceService) { }
+  constructor(public userService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class MenuComponent implements OnInit {
     switch(action) {
       case 'list':
         this.DeliverersListEvent.emit(PagesEnum.DeliverersList);
+        this.router.navigateByUrl('list');
       break;
     }
   }
