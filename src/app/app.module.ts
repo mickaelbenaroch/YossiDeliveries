@@ -6,9 +6,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MenuComponent } from './components/menu/menu.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { LoginComponent } from './components/login/login.component';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceService } from './services/user-service.service';
 import { DeliverersListComponent } from './components/deliverers-list/deliverers-list.component'
+
+const appRoutes: Routes = [
+  { path: '' , component: AppComponent},
+  { path: 'list' , component: DeliverersListComponent}
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import { DeliverersListComponent } from './components/deliverers-list/deliverers
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
     UserServiceService

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import {PagesEnum} from './enums/pages.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,19 @@ export class AppComponent implements OnInit{
   title = 'YossDeliveries';
   public page:PagesEnum;
   pageenum = PagesEnum;
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    let currentUrl = location.pathname;
+    if (currentUrl === '/' && this.page === PagesEnum.DeliverersList) {
+      this.page = PagesEnum.Loggin;
+    }
+    if (currentUrl === '/list' && this.page !== PagesEnum.DeliverersList) {
+      this.router.navigateByUrl('');
+    }
+  }
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.page = PagesEnum.Loggin;
