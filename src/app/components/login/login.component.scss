@@ -38,6 +38,10 @@
           text-align: right;
           color: red;
           padding-bottom: 14px;
+          visibility: hidden;
+      }
+      .show {
+          visibility: visible !important;
       }
     }
     .but-div {

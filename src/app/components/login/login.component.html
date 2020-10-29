@@ -7,7 +7,7 @@
         <div class="d-2">
             <input type="email" placeholder="your_email@mail.com"  [(ngModel)]="email">
         </div>
-        <div class="d-3">נא להזין אימייל תקין</div>
+        <div class="d-3" [ngClass]="{'show' : emailError}">נא להזין אימייל תקין</div>
     </div>
     <div class="row">
         <div class="d-1">
@@ -16,7 +16,7 @@
         <div class="d-2">
             <input type="password" placeholder="**********"  [(ngModel)]="password">
         </div>
-        <div class="d-3">נא להזין סיסמא</div>
+        <div class="d-3" [ngClass]="{'show' : passwordError}">נא להזין סיסמא</div>
     </div>
 
     <div class="but-div">
