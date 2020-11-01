@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Output, EventEmitter, isDevMode } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { PagesEnum } from 'src/app/enums/pages.enum';
@@ -15,16 +15,11 @@ export class LoginComponent implements OnInit, OnDestroy{
   public passwordError: boolean = false;
   public password: string;
   public email: string;
-  private baseUrl: string;
+  private baseUrl: string = "https://yoss-deliv-api.herokuapp.com/";
+  //private baseUrl: string = "http://localhost:3030/";
   @Output() loggedInEvent: EventEmitter<PagesEnum> = new EventEmitter();
 
-  constructor(private httpService: HttpClient, private userService: UserServiceService, private router: Router) { 
-    if (isDevMode()) {
-      this.baseUrl = "http://localhost:3030/";
-    } else {
-      this.baseUrl = "https://yoss-deliv-api.herokuapp.com/";
-    }
-  }
+  constructor(private httpService: HttpClient, private userService: UserServiceService, private router: Router) {  }
 
   ngOnInit(): void {
   }
