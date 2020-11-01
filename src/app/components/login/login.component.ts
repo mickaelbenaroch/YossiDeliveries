@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { PagesEnum } from 'src/app/enums/pages.enum';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader'; 
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,10 @@ export class LoginComponent implements OnInit, OnDestroy{
   //private baseUrl: string = "http://localhost:3030/";
   @Output() loggedInEvent: EventEmitter<PagesEnum> = new EventEmitter();
 
-  constructor(private httpService: HttpClient, private userService: UserServiceService, private router: Router) {  }
+  constructor(private httpService: HttpClient, 
+              private userService: UserServiceService, 
+              private router: Router, 
+              private ngxUiLoaderService: NgxUiLoaderService ) {  }
 
   ngOnInit(): void {
   }
@@ -44,21 +49,23 @@ export class LoginComponent implements OnInit, OnDestroy{
       email: this.email,
       pass: this.password
     }
+    this.ngxUiLoaderService.start(); 
     this.httpService.post(this.baseUrl + 'login', user).subscribe(
       (res: any) => {
         if(res && res.data) {
             console.log(res.data);
             this.userService.isUserLoggedIn = true;
             this.loggedInEvent.emit(PagesEnum.DeliverersList);
+            this.ngxUiLoaderService.stop();
             this.router.navigateByUrl('list');
         } else {
+          this.ngxUiLoaderService.stop();
           this.passwordError = true;
           this.emailError = true;
         }
       },
       err => {
-        this.passwordError = true;
-        this.emailError = true;
+        this.ngxUiLoaderService.stop();
         console.log(err);
       }
     )
