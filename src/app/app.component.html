@@ -5,7 +5,8 @@
   </header>
 
   <main>
-    <app-menu (DeliverersListEvent)="LoggedInCallback($event)"></app-menu>
+    <app-menu (DeliverersListEvent)="LoggedInCallback($event)"
+              (menuInitEvent)="CheckUrl($event)"></app-menu>
     <app-login (loggedInEvent)="LoggedInCallback($event)"
                *ngIf="page === pageenum.Loggin">
     </app-login>

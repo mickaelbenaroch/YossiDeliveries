@@ -27,12 +27,18 @@
         }
     }
     .account {
+        display: flex;
+        cursor: pointer;
         img {
             height: 50px;
             width: 50px;
             border-radius: 50%;
         }
-        cursor: pointer;
+        div {
+            width: 100px;
+            align-self: center;
+            padding-right: 5px;
+        }
     }
 }
 

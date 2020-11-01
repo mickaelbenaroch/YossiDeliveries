@@ -4,6 +4,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 import { PagesEnum } from 'src/app/enums/pages.enum';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader'; 
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -20,17 +21,18 @@ export class LoginComponent implements OnInit, OnDestroy{
   private baseUrl: string = "https://yoss-deliv-api.herokuapp.com/";
   //private baseUrl: string = "http://localhost:3030/";
   @Output() loggedInEvent: EventEmitter<PagesEnum> = new EventEmitter();
+  
+
 
   constructor(private httpService: HttpClient, 
-              private userService: UserServiceService, 
               private router: Router, 
-              private ngxUiLoaderService: NgxUiLoaderService ) {  }
+              private ngxUiLoaderService: NgxUiLoaderService,
+              public userService: UserServiceService ) {  }
 
   ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
-    this.userService.isUserLoggedIn = false;
   }
 
   Enter() {
@@ -53,10 +55,10 @@ export class LoginComponent implements OnInit, OnDestroy{
     this.httpService.post(this.baseUrl + 'login', user).subscribe(
       (res: any) => {
         if(res && res.data) {
-            console.log(res.data);
-            this.userService.isUserLoggedIn = true;
+            console.log(res.data);        
             this.loggedInEvent.emit(PagesEnum.DeliverersList);
             this.ngxUiLoaderService.stop();
+            this.userService.cuurentUser = res.data;
             this.router.navigateByUrl('list');
         } else {
           this.ngxUiLoaderService.stop();

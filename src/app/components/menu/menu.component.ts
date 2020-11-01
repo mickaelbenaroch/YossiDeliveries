@@ -12,14 +12,12 @@ export class MenuComponent implements OnInit {
 
   public pageenum: PagesEnum;
   @Output() DeliverersListEvent: EventEmitter<PagesEnum> = new EventEmitter();
-
   constructor(public userService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   Login() {
-    
   }
 
   MenuItemClicked(action : string) {

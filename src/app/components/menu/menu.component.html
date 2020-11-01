@@ -1,10 +1,11 @@
 <div class="envelop">
-    <div class="account" *ngIf="this.userService.isUserLoggedIn">
+    <div class="account" *ngIf="userService.isUserLoggedIn">
         <img src="/assets/user.png" (click)="Login()"/>
+        <div> היי {{userService.cuurentUser.firstname}},</div>
     </div>
     <div class="categories-group-div">
         <div (click)="MenuItemClicked('list')">רשימת שליחים</div>
-        <div *ngIf="this.userService.isUserLoggedIn">הוסף שליח</div>
+        <div *ngIf="userService.isUserLoggedIn">הוסף שליח</div>
         <div>שעות שליחים</div>
     </div>
 </div>
