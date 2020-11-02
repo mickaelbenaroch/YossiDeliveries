@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit, OnDestroy{
   public passwordError: boolean = false;
   public password: string;
   public email: string;
-  private baseUrl: string = "https://yoss-deliv-api.herokuapp.com/";
-  //private baseUrl: string = "http://localhost:3030/";
   @Output() loggedInEvent: EventEmitter<PagesEnum> = new EventEmitter();
   
 
@@ -52,13 +50,13 @@ export class LoginComponent implements OnInit, OnDestroy{
       pass: this.password
     }
     this.ngxUiLoaderService.start(); 
-    this.httpService.post(this.baseUrl + 'login', user).subscribe(
+    this.httpService.post(this.userService.baseUrl + 'login', user).subscribe(
       (res: any) => {
         if(res && res.data) {
             console.log(res.data);        
             this.loggedInEvent.emit(PagesEnum.DeliverersList);
             this.ngxUiLoaderService.stop();
-            this.userService.cuurentUser = res.data;
+            this.userService.currentUser = res.data;
             this.router.navigateByUrl('list');
         } else {
           this.ngxUiLoaderService.stop();

@@ -26,6 +26,10 @@ export class MenuComponent implements OnInit {
         this.DeliverersListEvent.emit(PagesEnum.DeliverersList);
         this.router.navigateByUrl('list');
       break;
+      case 'add':
+        this.DeliverersListEvent.emit(PagesEnum.AddDeliver);
+        this.router.navigateByUrl('adduser');
+      break;
     }
   }
 }

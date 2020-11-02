@@ -1,0 +1,57 @@
+
+<div class="envelop">
+    <div class="group">
+        <div class="part-1">
+            <div class="row">
+                <div>שם פרטי:</div>
+                <input type="text" placeholder="שם פרטי"  [(ngModel)]="userModel.firstname">
+            </div>
+            <div class="row">
+                <div>שם משפחה:</div>
+                <input type="text" placeholder="שם משפחה"  [(ngModel)]="userModel.lastname">
+            </div>
+            <div class="row">
+                <div>אימייל:</div>
+                <input type="email" placeholder="אימייל"  [(ngModel)]="userModel.email">
+            </div>
+            <div class="row">
+                <div>טלפון:</div>
+                <input type="tel" placeholder="טלפון"  [(ngModel)]="userModel.phone">
+            </div>
+            <div class="row">
+                <div>תשלום לשעה:</div>
+                <input type="number" placeholder="תשלום לשעה"  [(ngModel)]="userModel.salaryPerHour">
+            </div>
+            <div class="row">
+                <div>סיסמא:</div>
+                <input type="text" placeholder="סיסמא"  [(ngModel)]="userModel.pass">
+            </div>
+        </div>
+    
+        <div class="part-2">
+            <div class="row">
+                <div>כתובת:</div>
+                <input type="text" placeholder="כתובת"  [(ngModel)]="userModel.address">
+            </div>
+            <div class="row">
+                <div>גיל:</div>
+                <input type="number" placeholder="גיל"  [(ngModel)]="userModel.age">
+            </div>
+            <div class="row">
+                <div>האם הוא אדמין?</div>
+                <input type="radio" placeholder="האם הוא אדמין?"  [(ngModel)]="userModel.isAdmin">
+            </div>
+            <div class="row">
+                <div>תמונה:</div>
+                <input type="file" placeholder="תמונה"  [(ngModel)]="userModel.photo">
+            </div>
+            <div class="row">
+                <div>הערות:</div>
+                <textarea placeholder="הערות"  [(ngModel)]="userModel.notes"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="part-3">
+        <button type="button" class="button" (click)="AddUser()">אישור</button>
+    </div>
+</div>

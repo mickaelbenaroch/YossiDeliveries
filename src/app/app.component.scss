@@ -1,5 +1,4 @@
 .envelop {
-    height: 100%;
     header {
         direction: rtl;
         background-color: lightgrey;
@@ -20,6 +19,13 @@
         background-color: lightgrey;
         padding-top: 2rem;
     }
+}
+
+.h-100 {
+    height: 100%;
+}
+.h-unset {
+    height: unset;
 }
 
 @media only screen and (max-width: 600px) {

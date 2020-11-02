@@ -11,5 +11,6 @@ export class UserModel{
     public pass: string;
     public creationdate:Date;
     public isAdmin:boolean;
+    public notes: string;
 
 }

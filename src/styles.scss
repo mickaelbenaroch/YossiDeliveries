@@ -4,3 +4,21 @@ html, body {
     padding: 0;
     height: 100%;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.noti-modalbox >  mat-dialog-container {
+    padding: 0px;
+}
+.cdk-overlay-container {
+    z-index: 999999999999 !important;
+}
+.cdk-overlay-pane {
+    width: 40% !important;
+}
+mat-dialog-container {
+    border-radius: 5px !important;
+    max-height: 30px !important;
+    direction: rtl ;
+    padding: unset !important;
+    overflow-y: hidden !important;
+}
