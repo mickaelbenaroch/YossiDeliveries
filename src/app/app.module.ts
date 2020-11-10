@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import {MatRadioModule} from '@angular/material/radio';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     CommonModule,
     MatDialogModule,
     FormsModule,
+    MatRadioModule
   ],
   providers: [
     UserServiceService
