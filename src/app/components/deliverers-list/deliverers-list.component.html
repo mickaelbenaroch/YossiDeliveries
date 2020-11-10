@@ -1,4 +1,19 @@
 
 <div class="envelop">
-    <p>deliverers-list works!</p>
+    <mat-accordion *ngFor="let deliverer of userService.deliverers">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{deliverer.firstname}} {{' ' + deliverer.lastname}}
+            </mat-panel-title>
+            <mat-panel-description>
+                <img class="img" *ngIf="deliverer.photo == ''" src="/assets/user.png"/>
+                <img class="img" *ngIf="deliverer.photo !== ''" [src]="deliverer.photo"/>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p><span class="label">אימייל:</span> {{deliverer.email}}</p>
+          <p><span class="label">טלפון:</span> {{deliverer.phone}}</p>
+          <p><span class="label">מחיר שעתי:</span> {{deliverer.salaryPerHour}}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
 </div>

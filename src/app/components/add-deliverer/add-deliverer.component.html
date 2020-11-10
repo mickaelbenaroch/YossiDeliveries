@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div>תמונה:</div>
-                <input type="file" placeholder="תמונה"  [(ngModel)]="userModel.photo">
+                <input type="file" (change)="handleFileSelect($event)">
             </div>
             <div class="row">
                 <div>הערות:</div>

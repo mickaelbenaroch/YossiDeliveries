@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MatDialogModule} from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatExpansionModule} from '@angular/material/expansion';
 import { MenuComponent } from './components/menu/menu.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { LoginComponent } from './components/login/login.component';
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     CommonModule,
     MatDialogModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   ],
   providers: [
     UserServiceService

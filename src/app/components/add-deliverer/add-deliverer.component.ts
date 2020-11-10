@@ -79,4 +79,15 @@ export class AddDelivererComponent implements OnInit {
       return true;
     }
   }
+
+  public handleFileSelect(event):void{
+    //Reads the file bit by bit and save it into this.mp3 in base64 format 
+    if (event.target.files && event.target.files[0]) {
+     const reader = new FileReader();
+     reader.onload = (event1: any) => {
+       this.userModel.photo = event1.target.result;
+     };
+     reader.readAsDataURL(event.target.files[0]);
+  }
+ }
 }
