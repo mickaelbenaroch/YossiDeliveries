@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import {MatRadioModule} from '@angular/material/radio';
 import { Routes, RouterModule } from '@angular/router';
+import { MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MatDialogModule} from '@angular/material/dialog';
@@ -13,17 +13,20 @@ import { MatExpansionModule} from '@angular/material/expansion';
 import { MenuComponent } from './components/menu/menu.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { LoginComponent } from './components/login/login.component';
+import { HoursComponent } from './components/hours/hours.component';
 import { UserServiceService } from './services/user-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddDelivererComponent } from './components/add-deliverer/add-deliverer.component'
 import { DeliverersListComponent } from './components/deliverers-list/deliverers-list.component';
 import { GenericModalComponent } from './components/modal/generic-modal/generic-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
   { path: '' , component: AppComponent},
   { path: 'list' , component: DeliverersListComponent},
   { path: 'adduser' , component: AddDelivererComponent},
+  { path: 'hours', component: HoursComponent}
 ];
 
 @NgModule({
@@ -34,7 +37,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DeliverersListComponent,
     AddDelivererComponent,
-    GenericModalComponent
+    GenericModalComponent,
+    HoursComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     FormsModule,
     MatRadioModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   providers: [
     UserServiceService

@@ -1,0 +1,13 @@
+<div class="envelop">
+    <p class="label">בחר יום:</p>
+    <ngb-datepicker #dp [(ngModel)]="model" (dateSelect)="dateOutput($event)" (navigate)="date = $event.next" (ngModelChange)="calculate()" name="model" ngDefaultControl></ngb-datepicker>
+    <p class="label">תחילת משמרת:</p>
+    <ngb-timepicker [(ngModel)]="start" (ngModelChange)="calculate()" name="start" ngDefaultControl></ngb-timepicker>
+    <p class="label">סוף משמרת:</p>
+    <ngb-timepicker [(ngModel)]="end" (ngModelChange)="calculate()" name="end" ngDefaultControl></ngb-timepicker>
+    <div class="day" [(ngModel)]="day" name="day" ngDefaultControl>{{day}}</div>
+    <div class="hours" [(ngModel)]="result" name="result" ngDefaultControl>{{result}}</div>
+    <div class="but-div">
+        <button (click)="Validate()">אישור</button>
+    </div>
+</div>

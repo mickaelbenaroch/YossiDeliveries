@@ -1,0 +1,44 @@
+.envelop {
+    color: white;
+    display: flex;
+    align-items: center;    
+    padding: 15px;
+    flex-direction: column;
+    ngb-datepicker {
+        width: 234px;
+        background-color: white;
+    }
+    .label {
+        font-size: 22px;
+        direction: rtl;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .hours {
+        font-weight: bold; 
+        font-size: 25px; 
+        color: green;
+        margin-top: 10px; 
+        direction: rtl;
+    }
+    .day {
+        font-weight: bold; 
+        font-size: 25px; 
+        color: green;
+        margin-top: 10px;
+    }
+    .but-div {
+        font-size: 20px;
+        button {
+            cursor: pointer;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            border-radius: 7px;
+            font-size: 20px;
+        }
+        padding-bottom: 20px;
+    }
+}

@@ -7,6 +7,7 @@ import { ModalModel } from '../models/modalModel';
 import { ModalTypeEnum } from '../enums/modal-type.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { HourModel } from '../models/hourModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserServiceService {
   public isUserLoggedIn: boolean = false;
   public currentUser: UserModel;
   public baseUrl: string = "https://yoss-deliv-api.herokuapp.com/";
-  //private baseUrl: string = "http://localhost:3030/";
+  //public baseUrl: string = "http://localhost:3030/";
   private modalMod: ModalModel;
   public deliverers: UserModel[] = [];
 
@@ -44,6 +45,17 @@ export class UserServiceService {
         }
       },
       err =>{
+        this.errorProcess(err);
+      }
+    )
+  }
+
+  SendHour(hourModel: HourModel) {
+    this.ngxService.start();
+    this.httpService.post(this.baseUrl + 'deliverers/sethour', hourModel).subscribe(
+      res => {
+        this.successProcess("הדיווח הצליח!");
+      }, err => {
         this.errorProcess(err);
       }
     )

@@ -6,9 +6,6 @@
         border-bottom: 2px solid black;
     }
     main {
-        height: -moz-calc(100% - 266px);
-        height: -webkit-calc(100% - 266px);
-        height: calc(100% - 266px);
         background: black;
     }
     footer {
@@ -31,12 +28,9 @@
 @media only screen and (max-width: 600px) {
     .envelop{
         main{
-            height: -moz-calc(100% - 180px);
-            height: -webkit-calc(100% - 180px);
-            height: calc(100% - 180px);
+            min-height: 578px;
         }
         footer{
-            height: 30px;
             padding-top: 1rem;
         }
     }

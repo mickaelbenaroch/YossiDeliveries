@@ -49,10 +49,12 @@
        .categories-group-div{
            padding-right: 2rem;
            div {
-            padding: 5px;
+            padding: 12px;
             font-size: 15px;
             margin-left: 5px;
             min-width: unset;
+            display: flex;
+            align-self: center;
            }
        }
     }

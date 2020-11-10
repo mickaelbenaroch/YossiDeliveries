@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
 html, body {
     margin: 0;
     padding: 0;
@@ -30,3 +32,5 @@ mat-dialog-container {
 .mat-radio-container {
     margin-left: 5px;
 }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

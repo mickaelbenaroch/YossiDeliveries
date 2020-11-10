@@ -1,4 +1,4 @@
-<section class="envelop" [ngClass]="{'h-unset': page === pageenum.AddDeliver, 'h-100': page !== pageenum.AddDeliver}">
+<section class="envelop" [ngClass]="{'h-unset': page === pageenum.AddDeliver || page === pageenum.DeliverersHours , 'h-100': page !== pageenum.AddDeliver}">
   <ngx-ui-loader></ngx-ui-loader>
   <header>
     <app-logo></app-logo>
@@ -12,6 +12,7 @@
     </app-login>
     <app-deliverers-list *ngIf="page === pageenum.DeliverersList"></app-deliverers-list>
     <app-add-deliverer *ngIf="page === pageenum.AddDeliver"></app-add-deliverer>
+    <app-hours *ngIf="page === pageenum.DeliverersHours"></app-hours>
   </main>
   <footer>
     by @Mickael_Benaroch

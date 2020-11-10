@@ -1,12 +1,12 @@
 <div class="envelop" *ngIf="userService && userService.currentUser">
     <div class="account" *ngIf="userService.isUserLoggedIn" (click)="Login()">
         <img *ngIf="userService.currentUser.photo == ''" src="/assets/user.png"/>
-        <img *ngIf="userService.currentUser.photo !== ''" [src]="currentUser.photo"/>
+        <img *ngIf="userService.currentUser.photo !== ''" [src]="userService.currentUser.photo"/>
         <div> היי {{userService.currentUser.firstname}},</div>
     </div>
     <div class="categories-group-div">
         <div *ngIf="userService.isUserLoggedIn && userService.currentUser.isAdmin" (click)="MenuItemClicked('list')">רשימת שליחים</div>
         <div *ngIf="userService.isUserLoggedIn && userService.currentUser.isAdmin" (click)="MenuItemClicked('add')">הוסף שליח</div>
-        <div *ngIf="userService.isUserLoggedIn && !userService.currentUser.isAdmin">דיווח שעות</div>
+        <div *ngIf="userService.isUserLoggedIn && !userService.currentUser.isAdmin" (click)="MenuItemClicked('hours')">דיווח שעות</div>
     </div>
 </div>
