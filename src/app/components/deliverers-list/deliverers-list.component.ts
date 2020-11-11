@@ -1,6 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { PagesEnum } from 'src/app/enums/pages.enum';
-import { UserModel } from 'src/app/models/userModel';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -14,8 +12,8 @@ export class DeliverersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getDeliverersList();
+    this.userService.getHours();
     let currentUrl = location.pathname;
     this.menuInitEvent.emit(currentUrl);
   }
-
 }

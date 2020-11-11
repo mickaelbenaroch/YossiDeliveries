@@ -20,6 +20,7 @@ export class UserServiceService {
   //public baseUrl: string = "http://localhost:3030/";
   private modalMod: ModalModel;
   public deliverers: UserModel[] = [];
+  public hoursArray: HourModel[] = [];
 
   constructor(private httpService: HttpClient, private ngxService: NgxUiLoaderService, public dialog: MatDialog) { }
 
@@ -98,5 +99,38 @@ export class UserServiceService {
         const dialogRef = this.dialog.open(GenericModalComponent, {
           data: {modalModel: this.modalMod}
         });
+  }
+  getHours() {
+    let obj = {
+      email: this.currentUser.email,
+      phone: this.currentUser.phone,
+      isAdmin: this.currentUser.isAdmin
+    }
+    if (obj) {
+      this.ngxService.start();
+      this.httpService.post(this.baseUrl + 'deliverers/gethours', obj).subscribe(
+        (res: any) => {
+          if (res && res.data) {
+             switch(obj.isAdmin) {
+               case true:
+                 this.hoursArray = res.data;
+                 break;
+               case false:
+                 res.data.forEach((hr: HourModel) => {
+                   if (hr && hr.userEmail === this.currentUser.email && hr.userPhone === this.currentUser.phone) {
+                     this.hoursArray.push(hr);
+                   }
+                 });
+                 break;
+             }
+             this.ngxService.stop();
+          } else {
+            this.errorProcess("משהו השתבש בדרך ...");
+          }        }, 
+        err => {
+          this.errorProcess(err);
+        }
+      )
+    }
   }
 }

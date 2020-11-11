@@ -9,4 +9,5 @@ export class HourModel {
     public userPhone: string;
     public userEmail: string;
     public wasPayed: boolean;
+    public money: number;
 }

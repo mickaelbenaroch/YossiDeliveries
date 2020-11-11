@@ -33,4 +33,19 @@
     #link:hover {
         color: blue;
     }
+    .d {
+        direction: initial;
+        width: 50%;
+    }
+    .g-hours {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+
+        .hours {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
 }

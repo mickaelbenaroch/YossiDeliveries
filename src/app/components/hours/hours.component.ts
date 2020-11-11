@@ -53,6 +53,7 @@ export class HoursComponent implements OnInit {
       this.hourModel.userEmail = this.userService.currentUser.email;
       this.hourModel.userPhone = this.userService.currentUser.phone;
       this.hourModel.total = (Math.abs(this.start.hour - this.end.hour)) + ':' + (Math.abs(this.start.minute - this.end.minute));
+      this.hourModel.money = ((Math.abs(this.start.hour - this.end.hour)) * this.userService.currentUser.salaryPerHour) + ((Math.abs(this.start.minute - this.end.minute)) / 60 * this.userService.currentUser.salaryPerHour);
       let date = new Date();
       date.setDate(this.date.day);
       date.setMonth(this.date.month);

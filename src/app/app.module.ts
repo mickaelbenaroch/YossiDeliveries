@@ -20,6 +20,8 @@ import { AddDelivererComponent } from './components/add-deliverer/add-deliverer.
 import { DeliverersListComponent } from './components/deliverers-list/deliverers-list.component';
 import { GenericModalComponent } from './components/modal/generic-modal/generic-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HourPipe } from './pipes/hour.pipe';
+import { IlsPipe } from './pipes/ils.pipe';
 
 
 const appRoutes: Routes = [
@@ -38,7 +40,9 @@ const appRoutes: Routes = [
     DeliverersListComponent,
     AddDelivererComponent,
     GenericModalComponent,
-    HoursComponent
+    HoursComponent,
+    HourPipe,
+    IlsPipe
   ],
   imports: [
     BrowserModule,
