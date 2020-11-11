@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { ModalTypeEnum } from 'src/app/enums/modal-type.enum';
+import { PagesEnum } from 'src/app/enums/pages.enum';
+import { ModalModel } from 'src/app/models/modalModel';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { HourModel} from '../../models/hourModel';
+import { GenericModalComponent } from '../modal/generic-modal/generic-modal.component';
 
 @Component({
   selector: 'app-hours',
@@ -17,8 +22,11 @@ export class HoursComponent implements OnInit {
   public result: string;
   public day: string;
   public hourModel: HourModel;
+  private modalMod: ModalModel;
+  @Output() DeliverersListEvent: EventEmitter<PagesEnum> = new EventEmitter();
 
-  constructor(private calendar: NgbCalendar, private userService: UserServiceService) {
+
+  constructor(private calendar: NgbCalendar, private userService: UserServiceService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -50,10 +58,31 @@ export class HoursComponent implements OnInit {
       date.setMonth(this.date.month);
       date.setFullYear(this.date.year);
       this.hourModel.dayOfWeek = date.getDay();
-      this.userService.SendHour(this.hourModel);
+      this.openConfimationPopup();
     }
   }
   dateOutput(event: any) {
     this.date.day = event.day;
+  }
+
+  openConfimationPopup() {
+    this.modalMod = new ModalModel();
+    this.modalMod.title = "האם ברצונך להמשיך הדיווח?";
+    this.modalMod.displayBody = false;
+    this.modalMod.displayTitle = true;
+    this.modalMod.displayButton = true;
+    this.modalMod.buttonText = "אישור";
+    this.modalMod.type = ModalTypeEnum.warning;
+
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      panelClass: 'hours-confirmation',
+      height: '120px',
+      data: {modalModel: this.modalMod}
+    }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.userService.SendHour(this.hourModel);
+        this.DeliverersListEvent.emit(PagesEnum.DeliverersList);
+      }
+    });
   }
 }

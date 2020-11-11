@@ -4,7 +4,8 @@
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{deliverer.firstname}} {{' ' + deliverer.lastname}}
+              <div style="font-weight: bold;">{{deliverer.firstname}} {{' ' + deliverer.lastname}}</div>
+              <!-- <div id="link" *ngIf="!userService.currentUser.isAdmin"><a>לחץ כאן כדי לראות את השעות</a></div> -->
             </mat-panel-title>
             <mat-panel-description>
                 <img class="img" *ngIf="deliverer.photo == ''" src="/assets/user.png"/>

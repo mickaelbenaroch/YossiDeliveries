@@ -8,6 +8,7 @@ import { ModalTypeEnum } from '../enums/modal-type.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { HourModel } from '../models/hourModel';
+import { DeliverersListComponent } from '../components/deliverers-list/deliverers-list.component';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,15 @@ export class UserServiceService {
     this.httpService.get(this.baseUrl + 'deliverers/list').subscribe(
       (res: any) => {
         if (res && (res.data as UserModel[])) {
-          this.deliverers = res.data;
+          if (this.currentUser.isAdmin) {
+            this.deliverers = res.data;
+          } else {
+            res.data.forEach((del: UserModel) => {
+              if (del.email === this.currentUser.email && del.phone === this.currentUser.phone) {
+                this.deliverers.push(del);
+              }
+            });
+          }
           this.ngxService.stop();
         } else {
           this.errorProcess("משהו השתבש בדרך ...");

@@ -24,7 +24,7 @@ export class GenericModalComponent implements OnInit {
     // }, 5000);
   }
 
-  close(): void {
-    this.dialogRef.close();
+  close(action: boolean): void {
+    this.dialogRef.close(action);
   }
 }

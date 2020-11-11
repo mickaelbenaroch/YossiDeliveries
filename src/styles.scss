@@ -26,6 +26,16 @@ mat-dialog-container {
     overflow-y: hidden !important;
 }
 
+.hours-confirmation {
+    mat-dialog-container {
+        border-radius: 5px !important;
+        max-height: unset !important;
+        direction: rtl ;
+        padding: unset !important;
+        overflow-y: hidden !important;
+    }
+}
+
 .mat-radio-outer-circle {
     border-color: white !important;
 }

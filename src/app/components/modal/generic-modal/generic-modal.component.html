@@ -1,12 +1,13 @@
 <div class="envelop" *ngIf="modalModel">
     <header *ngIf="modalModel.displayTitle" [ngClass]="{green: modalModel.type === 0 && modalModel.displayTitle, orange :modalModel.type === 1 && modalModel.displayTitle, red: modalModel.type === 2 && modalModel.displayTitle}">
         <div>{{modalModel.title}}</div>
-        <img src="/assets/close.svg" (click)="close()"/>
+        <img src="/assets/close.svg" (click)="close(false)"/>
     </header>
     <main [ngClass]="{green: modalModel.type === 0 && modalModel.displayBody, orange :modalModel.type === 1 && modalModel.displayBody, red: modalModel.type === 2 && modalModel.displayBody}">
         <span *ngIf="modalModel.displayBody">{{modalModel.body}}</span>    
     </main>
     <footer *ngIf="modalModel.displayButton">
-        <button>{{modalModel.buttonText}}</button>
+        <button (click)="close(true)" style="margin-left: 10px;cursor: pointer;">{{modalModel.buttonText}}</button>
+        <button (click)="close(false)" style="margin-right: 10px;cursor: pointer;">ביטול</button>
     </footer>
 </div>

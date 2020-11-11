@@ -6,13 +6,16 @@
 
   <main>
     <app-menu (DeliverersListEvent)="LoggedInCallback($event)"
-              (menuInitEvent)="CheckUrl($event)"></app-menu>
+              (menuInitEvent)="CheckUrl($event)">
+    </app-menu>
     <app-login (loggedInEvent)="LoggedInCallback($event)"
                *ngIf="page === pageenum.Loggin">
     </app-login>
     <app-deliverers-list *ngIf="page === pageenum.DeliverersList"></app-deliverers-list>
     <app-add-deliverer *ngIf="page === pageenum.AddDeliver"></app-add-deliverer>
-    <app-hours *ngIf="page === pageenum.DeliverersHours"></app-hours>
+    <app-hours *ngIf="page === pageenum.DeliverersHours"
+               (DeliverersListEvent)="LoggedInCallback($event)">
+    </app-hours>
   </main>
   <footer>
     by @Mickael_Benaroch

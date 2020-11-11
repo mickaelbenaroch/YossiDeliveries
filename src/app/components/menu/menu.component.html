@@ -10,3 +10,5 @@
         <div *ngIf="userService.isUserLoggedIn && !userService.currentUser.isAdmin" (click)="MenuItemClicked('hours')">דיווח שעות</div>
     </div>
 </div>
+<div style="height: 84px;background: antiquewhite;" *ngIf="!userService || !userService.currentUser">
+</div>

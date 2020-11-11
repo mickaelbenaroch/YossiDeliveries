@@ -1,6 +1,7 @@
 .envelop {
     color: white;
     padding: 10px;
+    text-align: right;
     direction: rtl;
     .mat-expansion-panel-header {
         padding-top: 10px;
@@ -21,5 +22,15 @@
     }
     .mat-accordion .mat-expansion-panel:last-of-type {
         margin-bottom: 5px;
+    }
+    .mat-expansion-panel-header-title {
+        flex-direction: column;
+    }
+    #link {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    #link:hover {
+        color: blue;
     }
 }

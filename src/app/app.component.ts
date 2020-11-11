@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy{
     }
     if (currentUrl === '/list' && this.page !== PagesEnum.DeliverersList) {
       this.router.navigateByUrl('');
+      this.page = PagesEnum.DeliverersList;
     }
   }
 

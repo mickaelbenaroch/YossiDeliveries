@@ -8,4 +8,5 @@ export class HourModel {
     public total: string;
     public userPhone: string;
     public userEmail: string;
+    public wasPayed: boolean;
 }
