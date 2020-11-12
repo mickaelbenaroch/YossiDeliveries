@@ -18,6 +18,8 @@ export class AppComponent implements OnInit, OnDestroy{
     let currentUrl = location.pathname;
     if (currentUrl === '/' && this.page === PagesEnum.DeliverersList) {
       this.page = PagesEnum.Loggin;
+      this.userService.deliverers = [];
+      this.userService.hoursArray = [];
     }
     if (currentUrl === '/list' && this.page !== PagesEnum.DeliverersList) {
       this.router.navigateByUrl('');
